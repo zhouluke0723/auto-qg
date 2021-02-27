@@ -4,13 +4,13 @@
 importClass(android.database.sqlite.SQLiteDatabase);
 //运行日志
 console.setGlobalLogConfig({ "file": "./运行日志.txt" });
-//清空运行日志 2021.2.16xzy添加
+//清空运行日志
 files.write("./运行日志.txt", "请运行任务\n");
-//是否是第一次打开2021.2.17xzy添加
+//是否是第一次打开
 //var iff = files.read("./if.txt");
 //判断是否为空
 //if (iff == ""){
-    alert("必读说明", "免责声明：\n本程序只供个人学习Auto.js使用，不得盈利传播，不得用于违法用途，否则造成的一切后果自负！\n如果继续使用此应用即代表您同意此协议\n说明：此应用仅适用于Android7.0以上的版本。\n打开应用后请先点击第一个按钮打开无障碍和悬浮窗权限，如果没有反应则是已经开启。\n随后点击默认执行按钮，程序会自动检测当前分数智能执行\n如果您要使用自定义执行及单个任务执行功能，请先在数据配置页配置数据\n特别鸣谢：晴天、翻滚的茄子、AIQiangguo\n正常执行可得42分\n请确保进入学习强国时位于 主界面，模拟点击从主界面开始");
+    alert("必读说明", "免责声明：\n本程序只供个人学习Auto.js使用，不得盈利传播，不得用于违法用途，否则造成的一切后果自负！\n如果继续使用此应用即代表您同意此协议\n说明：此应用仅适用于Android7.0以上的版本。\n打开应用后请先点击第一个按钮打开无障碍和悬浮窗权限，如果没有反应则是已经开启。\n随后点击默认执行按钮，程序会自动检测当前分数智能执行\n如果您要使用自定义执行及单个任务执行功能，请先在数据配置页配置数据\n正常执行可得42分\n请确保进入学习强国时位于 主界面，模拟点击从主界面开始");
     //files.write("./if.txt", "1");
 //}
 
@@ -55,7 +55,6 @@ var customize_flag = false;//自定义运行标志
 
 /*
 <---------------UI部分开始--------------->
-xzy更新
 */
 //alert("协议及说明", "免责声明：\n本程序只供个人学习Auto.js使用，不得盈利传播，不得用于违法用途，否则造成的一切后果自负！\n如果继续使用此应用即代表您同意此协议\n说明：此应用仅适用于Android7.0以上的版本。");
 
@@ -203,7 +202,7 @@ ui.layout(
     </drawer>
 );
 
-ui.v244.setText("v2.4.4:2021.2.17\n特别鸣谢：晴天、翻滚的茄子\n1，每次打开自动清空日志\n2，添加订阅功能\n3，添加函数名执行功能\n3，添加第一次打开应用的判断\n");
+ui.v244.setText("v2.4.4:2021.2.17\n1，每次打开自动清空日志\n2，添加订阅功能\n3，添加函数名执行功能\n3，添加第一次打开应用的判断\n");
 ui.v240.setText("v2.4.0:2021.2.16\n1，修复适配问题\n2，更新UI\n3，更新协议及说明\n");
 ui.v220.setText("v2.2.0:2021.1.27\n1，添加争上游答题\n2，修复个别执行没有返回的问题\n3，添加协议及说明\n");
 ui.v204.setText("v2.0.4:2020.8.29\n1，添加应用安装检测\n2，修复视听学习不能加积分的bug\n");
@@ -227,7 +226,7 @@ ui.emitter.on("options_item_selected", (e, item)=>{
             alert("协议", "免责声明：本程序只供个人学习Auto.js使用，不得盈利传播，不得用于违法用途，否则造成的一切后果自负！\n如果继续使用此应用即代表您同意此协议");
             break;
         case "关于":
-            alert("关于", "自动学习强国 v2.4.4 ，徐子越制作");
+            alert("关于", "自动学习强国 v2.4.4 ");
             break;
         case "说明":
             alert("使用说明",
@@ -240,7 +239,7 @@ ui.emitter.on("options_item_selected", (e, item)=>{
 activity.setSupportActionBar(ui.toolbar);
 
 //设置滑动页面的标题
-ui.viewpager.setTitles(["自动", "数据配置", "运行日志", "更新记录", "xzy的网站"]);
+ui.viewpager.setTitles(["自动", "数据配置", "运行日志", "更新记录"]);
 //让滑动页面和标签栏联动
 ui.tabs.setupWithViewPager(ui.viewpager);
 
@@ -248,10 +247,6 @@ ui.tabs.setupWithViewPager(ui.viewpager);
 ui.toolbar.setupWithDrawer(ui.drawer);
 
 ui.menu.setDataSource([
-  {
-      title: "作者官网：http://xzy.free.idcfengye.com/",
-      icon: "@drawable/ic_android_black_48dp"
-  },
   {
       title: "退出",
       icon: "@drawable/ic_exit_to_app_black_48dp"
@@ -266,7 +261,6 @@ ui.menu.on("item_click", item => {
     }
 })
 
-ui.webview.loadUrl("http://xzy.free.idcfengye.com/");
 
 ui.click_me.on("click", ()=>{
     toast("选择'自动学习强国'开启无障碍");
